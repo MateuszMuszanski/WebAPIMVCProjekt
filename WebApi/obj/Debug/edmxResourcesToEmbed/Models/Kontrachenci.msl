@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CRUDDBModelStoreContainer" CdmEntityContainer="DBModelK">
+    <EntitySetMapping Name="ProdKontra">
+      <EntityTypeMapping TypeName="CRUDDBModel.ProdKontra">
+        <MappingFragment StoreEntitySet="ProdKontra">
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="NazwaProduktu" ColumnName="NazwaProduktu" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="CenaNetto" ColumnName="CenaNetto" />
+          <ScalarProperty Name="VAT" ColumnName="VAT" />
+          <ScalarProperty Name="CenaBrutto" ColumnName="CenaBrutto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

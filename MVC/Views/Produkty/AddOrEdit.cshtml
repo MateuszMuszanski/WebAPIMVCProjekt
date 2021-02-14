@@ -1,0 +1,52 @@
+﻿@model MVC.Models.mvcProduktyModel
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+
+<div class="form-body">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.IdProduktu)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NazwaProduktu)
+            @Html.EditorFor(model => model.NazwaProduktu)
+            @Html.ValidationMessageFor(model => model.NazwaProduktu)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Opis)
+            @Html.EditorFor(model => model.Opis)
+            @Html.ValidationMessageFor(model => model.Opis)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ilosc)
+            @Html.EditorFor(model => model.Ilosc)
+            @Html.ValidationMessageFor(model => model.Ilosc)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CenaNetto)
+            @Html.EditorFor(model => model.CenaNetto)
+            @Html.ValidationMessageFor(model => model.CenaNetto)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VAT)
+            @Html.EditorFor(model => model.VAT)
+            @Html.ValidationMessageFor(model => model.VAT)
+        </div>
+
+        
+
+        <div class="form-group">
+            <input type="submit" value="Wyślij" class="btn button" />
+            <input type="reset" value="Reset" class="btn button" />
+        </div>
+    }
+</div>
+
+@*@section scripts {
+    @Scripts.Render("~/bundles/jqueryval");
+    }*@

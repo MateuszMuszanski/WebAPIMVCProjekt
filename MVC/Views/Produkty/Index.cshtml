@@ -1,0 +1,83 @@
+﻿@model IEnumerable<MVC.Models.mvcProduktyModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<p>
+   <a href="@Url.Action("AddOrEdit","Produkty")" class="btn btn-default">Nowy</a>
+</p>
+
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.NazwaProduktu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ilosc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CenaNetto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VAT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CenaBrutto)
+            </th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.NazwaProduktu)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Opis)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ilosc)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CenaNetto)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VAT)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CenaBrutto)
+    </td>
+    <td>
+        @*@Html.ActionLink("Edytuj", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Szczegóły", "Details", new { /* id=item.PrimaryKey */ }) |*@
+        <a href="@Url.Action("AddOrEdit","Produkty", new {id = item.IdProduktu })" class="btn btn-default">Edytuj</a>
+        <a onclick="Delete(@item.IdProduktu)" class="btn btn-default">Usuń</a>
+    </td>
+</tr>
+}
+
+</table>
+
+@section scripts {
+    <script>
+        $(function () {
+            var succesMessage = '@TempData["SuccessMessage"]'
+            if (succesMessage != '')
+                alertify.success(succesMessage);
+        });
+        function Delete(id) {
+            alertify.confirm('Zarządzanie produktami', 'Czy ma pewno chcesz usunąć?', function () {
+                window.location.href = '@Url.Action("Delete","Produkty")/' + id;
+            },null)
+        }
+    </script>
+    }

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CRUDDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ProdKontra">
+    <Key>
+      <PropertyRef Name="NIP" />
+    </Key>
+    <Property Name="NIP" Type="int" Nullable="false" />
+    <Property Name="NazwaProduktu" Type="varchar" MaxLength="255" />
+    <Property Name="Opis" Type="varchar" MaxLength="255" />
+    <Property Name="Ilosc" Type="int" />
+    <Property Name="CenaNetto" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="VAT" Type="int" />
+    <Property Name="CenaBrutto" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityContainer Name="CRUDDBModelStoreContainer">
+    <EntitySet Name="ProdKontra" EntityType="Self.ProdKontra" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
